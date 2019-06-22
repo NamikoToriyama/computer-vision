@@ -1,19 +1,21 @@
+package euc;
+
 import java.io.*;
 import javax.imageio.*;
 import java.awt.image.*;
 
 /**
- * JPEG¥Õ¥¡¥¤¥ë¤ÎÆÉ¤ß¹þ¤ß
+ * JPEGï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ß¹ï¿½ï¿½ï¿½
  */
 public class JpegFileReader {
 
 	/**
-	 * JPEG¥Õ¥¡¥¤¥ë¤ÎÆÉ¤ß¹þ¤ß
+	 * JPEGï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ß¹ï¿½ï¿½ï¿½
 	 */
 	public static MyImage read(String filename) {
 		BufferedImage image = null;
 		
-		// ¥Õ¥¡¥¤¥ë¤ò³«¤¯
+		// ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ò³«¤ï¿½
 		try {
 			image = ImageIO.read(new File(filename));
 		} catch(Exception exp) {
@@ -21,7 +23,7 @@ public class JpegFileReader {
 			return null;
 		}
 		
-		// ÆÉ¤ß¹þ¤ó¤À²èÁü¤Î²èÁÇÃÍ¤òÆÀ¤ë
+		// ï¿½É¤ß¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ï¿½
 		int width = image.getWidth();
 		int height = image.getHeight();
 		int[] rgb = new int[width * height];
@@ -33,7 +35,7 @@ public class JpegFileReader {
 			return null;
 		}
 		
-		// MyImage¥¯¥é¥¹¤ò³ÎÊÝ¤·¤ÆÊÖ¤¹
+		// MyImageï¿½ï¿½ï¿½é¥¹ï¿½ï¿½ï¿½ï¿½Ý¤ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½
 		MyImage my = new MyImage(width, height, rgb);
 		return my;
 		

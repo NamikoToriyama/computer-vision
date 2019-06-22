@@ -1,19 +1,21 @@
+package sjis;
+
 import java.io.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.*;
 
 /**
- * JPEGƒtƒ@ƒCƒ‹‚Ì‘‚«‚İ
+ * JPEGï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class JpegFileWriter {
 
 	/**
-	 * JPEGƒtƒ@ƒCƒ‹‚Ì‘‚«‚İ
+	 * JPEGï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public static void write(String filename, MyImage myimage) {
 
-		// o—Í‰Â”\‚ÈƒNƒ‰ƒX‚É‰æ‘œî•ñ‚ğƒRƒs[‚·‚é
+		// ï¿½oï¿½Í‰Â”\ï¿½ÈƒNï¿½ï¿½ï¿½Xï¿½É‰æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½sï¿½[ï¿½ï¿½ï¿½ï¿½
 		BufferedImage image =
 				new BufferedImage(myimage.width, myimage.height, BufferedImage.TYPE_INT_RGB);
 		for(int i = 0; i < myimage.height; i++) {
@@ -24,7 +26,7 @@ public class JpegFileWriter {
 			}
 		}
 		
-		// ƒtƒ@ƒCƒ‹o—Í‚·‚é
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½oï¿½Í‚ï¿½ï¿½ï¿½
 		try {
 			ImageIO.write(image, "jpeg", new File(filename));
 		} catch(Exception e) {

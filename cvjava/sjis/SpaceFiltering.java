@@ -1,20 +1,21 @@
+package sjis;
 
 import java.awt.*;
 
 
 /**
- * ‹óŠÔƒtƒBƒ‹ƒ^ƒŠƒ“ƒO
+ * ï¿½ï¿½Ôƒtï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½O
  */
 public class SpaceFiltering {
 
-	// ‹óŠÔƒtƒBƒ‹ƒ^ƒŠƒ“ƒO‚ğ“K—p‚·‚é”z—ñ
+	// ï¿½ï¿½Ôƒtï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½Kï¿½pï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
 	static double filter[] = {
 		0.33333,0,0,0,0.33333,0,0,0,0.33333
 	};
 
 
 	/**
-	 * ‹óŠÔƒtƒBƒ‹ƒ^ƒŠƒ“ƒO‚ğ—p‚¢‚½‰æ‘œˆ—‚Ì—á
+	 * ï¿½ï¿½Ôƒtï¿½Bï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½
 	 */
 	static MyImage execute(MyImage input) {
 		int width = input.width;
@@ -22,12 +23,12 @@ public class SpaceFiltering {
 		int n;
 		MyImage output = new MyImage(width, height);
 		
-		// Še‰æ‘f‚²‚Æ‚É
+		// ï¿½eï¿½ï¿½fï¿½ï¿½ï¿½Æ‚ï¿½
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				double valueR = 0.0, valueG = 0.0, valueB = 0.0;
 
-				// ¶ã‚Ì‰æ‘f’l‚ğ‰ÁZ
+				// ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Z
 				if(i > 0 && j > 0) {
 					Color color = input.getColor(j-1, i-1);
 					valueR += (double)color.getRed()   * filter[0];
@@ -35,7 +36,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[0];
 				}
 
-				// ã‚Ì‰æ‘f’l‚ğ‰ÁZ
+				// ï¿½ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Z
 				if(i > 0) {
 					Color color = input.getColor(j, i-1);
 					valueR += (double)color.getRed()   * filter[1];
@@ -43,7 +44,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[1];
 				}
 
-				// ‰Eã‚Ì‰æ‘f’l‚ğ‰ÁZ
+				// ï¿½Eï¿½ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Z
 				if(i > 0 && j < (width - 1)) {
 					Color color = input.getColor(j+1, i-1);
 					valueR += (double)color.getRed()   * filter[2];
@@ -51,7 +52,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[2];
 				}
 			
-				// ¶‚Ì‰æ‘f’l‚ğ‰ÁZ
+				// ï¿½ï¿½ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Z
 				if(j > 0) {
 					Color color = input.getColor(j-1, i);
 					valueR += (double)color.getRed()   * filter[3];
@@ -59,7 +60,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[3];
 				}
 				
-				// “¯ˆêêŠ‚Ì‚Ì‰æ‘f’l‚ğ‰ÁZ
+				// ï¿½ï¿½ï¿½ï¿½êŠï¿½Ì‚Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Z
 				{
 				Color color = input.getColor(j, i);
 				valueR += (double)color.getRed()   * filter[4];
@@ -67,7 +68,7 @@ public class SpaceFiltering {
 				valueB += (double)color.getBlue()  * filter[4];
 				}
 		
-				// ‰E‚Ì‰æ‘f’l‚ğ‰ÁZ
+				// ï¿½Eï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Z
 				if(j < (width - 1)) {
 					Color color = input.getColor(j+1, i);
 					valueR += (double)color.getRed()   * filter[5];
@@ -75,7 +76,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[5];
 				}
 
-				// ¶‰º‚Ì‰æ‘f‚Æ‚Ì”äŠr
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½fï¿½Æ‚Ì”ï¿½r
 				if(i < (height - 1) && j > 0) {
 					Color color = input.getColor(j-1, i+1);
 					valueR += (double)color.getRed()   * filter[6];
@@ -83,7 +84,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[6];
 				}
 
-				// ‰º‚Ì‰æ‘f‚Æ‚Ì”äŠr
+				// ï¿½ï¿½ï¿½Ì‰ï¿½fï¿½Æ‚Ì”ï¿½r
 				if(i < (height - 1)) {
 					Color color = input.getColor(j, i+1);
 					valueR += (double)color.getRed()   * filter[7];
@@ -91,7 +92,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[7];
 				}
 
-				// ‰E‰º‚Ì‰æ‘f‚Æ‚Ì”äŠr
+				// ï¿½Eï¿½ï¿½ï¿½Ì‰ï¿½fï¿½Æ‚Ì”ï¿½r
 				if(i < (height - 1) && j < (width - 1)) {
 					Color color = input.getColor(j+1, i+1);
 					valueR += (double)color.getRed()   * filter[8];
@@ -99,7 +100,7 @@ public class SpaceFiltering {
 					valueB += (double)color.getBlue()  * filter[8];
 				}
 
-				// valueR, valueG, valueB ‚Ì’l‚ğ0`255‚Ì”ÍˆÍ‚É‚·‚é
+				// valueR, valueG, valueB ï¿½Ì’lï¿½ï¿½0ï¿½`255ï¿½Ì”ÍˆÍ‚É‚ï¿½ï¿½ï¿½
 				if(valueR < 0.0) valueR = 0.0;
 				if(valueR > 255.0) valueR =255.0;
 				if(valueG < 0.0) valueG = 0.0;
@@ -107,13 +108,13 @@ public class SpaceFiltering {
 				if(valueB < 0.0) valueB = 0.0;
 				if(valueB > 255.0) valueB =255.0;
 
-				// o—Í‰æ‘œ‚É’l‚ğİ’è‚·‚é
+				// ï¿½oï¿½Í‰æ‘œï¿½É’lï¿½ï¿½İ’è‚·ï¿½ï¿½
 				Color color2 = new Color((int)valueR, (int)valueG, (int)valueB);
 				output.setColor(j, i, color2);
 			}
 		}
 		
-		// V‚µ‚¢‰æ‘œƒf[ƒ^‚ğ•Ô‚·
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½fï¿½[ï¿½^ï¿½ï¿½Ô‚ï¿½
 		return output;
 	}
 

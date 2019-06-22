@@ -1,12 +1,13 @@
+package euc;
 
 import java.awt.Color;
 
 public class MyImage {
 
-	// ²£Êý¸þ¤È½ÄÊý¸þ¤Î²èÁÇ¿ô
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½Ç¿ï¿½
 	int width, height;
 	
-	// ²èÁÇÃÍ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int pixelarray[];
 	
 	
@@ -27,7 +28,7 @@ public class MyImage {
 	}
 	
 	/**
-	 * ÆÃÄê¤Î²èÁÇÃÍ¤ò¥»¥Ã¥È¤¹¤ë
+	 * ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ò¥»¥Ã¥È¤ï¿½ï¿½ï¿½
 	 */
 	public void setColor(int j, int i, Color color) {
 		int id = i * width + j;
@@ -36,7 +37,7 @@ public class MyImage {
 	}
 	
 	/**
-	 * ÆÃÄê¤Î¤¬Á¼ÃÖ¤ò¥²¥Ã¥È¤¹¤ë
+	 * ï¿½ï¿½ï¿½ï¿½Î¤ï¿½ï¿½ï¿½ï¿½Ö¤ò¥²¥Ã¥È¤ï¿½ï¿½ï¿½
 	 */
 	public Color getColor(int j, int i) {
 		int id = i * width + j;

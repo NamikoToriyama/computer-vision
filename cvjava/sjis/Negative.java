@@ -1,38 +1,39 @@
+package sjis;
 
 import java.awt.Color;
 
 /**
- * ‰æ‘œˆ—‚Ì—áF”Z’W‚ğ”½“]‚·‚é
+ * ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½Fï¿½Zï¿½Wï¿½ğ”½“]ï¿½ï¿½ï¿½ï¿½
  */
 public class Negative {
 
 	/**
-	 * ”Z’W”½“]‚ğÀs‚·‚é
+	 * ï¿½Zï¿½Wï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½
 	 */
 	public static MyImage execute(MyImage input) {
 
-		// o—Í‰æ‘œ‚ğŠm•Û‚·‚é
+		// ï¿½oï¿½Í‰æ‘œï¿½ï¿½ï¿½mï¿½Û‚ï¿½ï¿½ï¿½
 		MyImage output = new MyImage(input.width, input.height);
 	
-		// Še‰æ‘f‚É‚Â‚¢‚Ä
+		// ï¿½eï¿½ï¿½fï¿½É‚Â‚ï¿½ï¿½ï¿½
 		for(int i = 0; i < input.height; i++) {
 			for(int j = 0; j < input.width; j++) {
 				
-				// “ü—Í‰æ‘œ‚Ì‰æ‘f’l‚ğƒQƒbƒg‚·‚é
+				// ï¿½ï¿½ï¿½Í‰æ‘œï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½Qï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 				Color color1 = input.getColor(j, i);
 
-				// ”½“]‚µ‚½‰æ‘f’l‚ÌŒvZ
+				// ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½lï¿½ÌŒvï¿½Z
 				int r = 255 - color1.getRed();
 				int g = 255 - color1.getGreen();
 				int b = 255 - color1.getBlue();
 				Color color2 = new Color(r, g, b);
 
-				// o—Í‰æ‘œ‚Ì‰æ‘f’l‚ğƒZƒbƒg‚·‚é
+				// ï¿½oï¿½Í‰æ‘œï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 				output.setColor(j, i, color2);
 			}
 		}
 		
-		// o—Í‰æ‘œ‚ğ•Ô‚·
+		// ï¿½oï¿½Í‰æ‘œï¿½ï¿½Ô‚ï¿½
 		return output;
 	}
 

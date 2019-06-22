@@ -1,19 +1,21 @@
+package euc;
+
 import java.io.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.*;
 
 /**
- * JPEG¥Õ¥¡¥¤¥ë¤Î½ñ¤­¹þ¤ß
+ * JPEGï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Î½ñ¤­¹ï¿½ï¿½ï¿½
  */
 public class JpegFileWriter {
 
 	/**
-	 * JPEG¥Õ¥¡¥¤¥ë¤Î½ñ¤­¹þ¤ß
+	 * JPEGï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Î½ñ¤­¹ï¿½ï¿½ï¿½
 	 */
 	public static void write(String filename, MyImage myimage) {
 
-		// ½ÐÎÏ²ÄÇ½¤Ê¥¯¥é¥¹¤Ë²èÁü¾ðÊó¤ò¥³¥Ô¡¼¤¹¤ë
+		// ï¿½ï¿½ï¿½Ï²ï¿½Ç½ï¿½Ê¥ï¿½ï¿½é¥¹ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¥³¥Ô¡ï¿½ï¿½ï¿½ï¿½ï¿½
 		BufferedImage image =
 				new BufferedImage(myimage.width, myimage.height, BufferedImage.TYPE_INT_RGB);
 		for(int i = 0; i < myimage.height; i++) {
@@ -24,7 +26,7 @@ public class JpegFileWriter {
 			}
 		}
 		
-		// ¥Õ¥¡¥¤¥ë½ÐÎÏ¤¹¤ë
+		// ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½
 		try {
 			ImageIO.write(image, "jpeg", new File(filename));
 		} catch(Exception e) {

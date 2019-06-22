@@ -1,8 +1,9 @@
+package sjis;
 
 import java.awt.*;
 
 /**
- * K-means–@‚É‚æ‚éƒNƒ‰ƒXƒ^ƒŠƒ“ƒO
+ * K-meansï¿½@ï¿½É‚ï¿½ï¿½Nï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½O
  */
 public class KMeans {
 	int SIZE_RGB = 256 * 256 * 256;
@@ -10,7 +11,7 @@ public class KMeans {
 	int width, height, num;
 
 	/**
-	 * ‰æ‘œˆ—‚Ì—áFk-means–@‚É‚æ‚é‰æ‘fƒNƒ‰ƒXƒ^ƒŠƒ“ƒO
+	 * ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½Fk-meansï¿½@ï¿½É‚ï¿½ï¿½ï¿½fï¿½Nï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½O
 	 */
 	MyImage clustering(MyImage input, int n) {
 		width = input.width;
@@ -23,14 +24,14 @@ public class KMeans {
 		Color pcenters[] = new Color[num];
 
 
-		// V‚µ‚¢‰æ‘œƒf[ƒ^‚Ì‚½‚ß‚Éƒƒ‚ƒŠ‚ğŠm•Û‚·‚é
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½fï¿½[ï¿½^ï¿½Ì‚ï¿½ï¿½ß‚Éƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½Û‚ï¿½ï¿½ï¿½
 		MyImage output = new MyImage(width, height);
 		idarray = new int[width * height];
 
-		// numŒÂ‚Ì’†S“_‚Ì‰Šú’l‚ğZo‚·‚é
+		// numï¿½Â‚Ì’ï¿½ï¿½Sï¿½_ï¿½Ìï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 		initCenters(centers, num);
 
-		// û‘©‚·‚é‚Ü‚ÅƒNƒ‰ƒXƒ^ƒŠƒ“ƒO‚ğ”½•œ‚·‚é
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ÅƒNï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ğ”½•ï¿½ï¿½ï¿½ï¿½ï¿½
 		for(counter = 1; ; counter++) {
 			assignPixels(input, output, centers);
 			distance = calcNewCenter(input, output, centers, pcenters);
@@ -40,7 +41,7 @@ public class KMeans {
 				centers[i] = pcenters[i];
 		}
 
-		// V‚µ‚¢‰æ‘œƒf[ƒ^‚ğ•Ô‚·
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½fï¿½[ï¿½^ï¿½ï¿½Ô‚ï¿½
 		return output;
 
 
@@ -48,7 +49,7 @@ public class KMeans {
 
 
 	/**
-	 * numŒÂ‚Ì’†S“_‚Ì‰Šú’l‚ğZo‚·‚é
+	 * numï¿½Â‚Ì’ï¿½ï¿½Sï¿½_ï¿½Ìï¿½ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 	 */
 	void initCenters(Color[] centers, int num) {
 
@@ -68,33 +69,33 @@ public class KMeans {
 
 
 	/**
-	 * Še‰æ‘f‚ğÅ‚à‹ß‚¢F‚ÌƒNƒ‰ƒXƒ^‚É“–‚Ä‚Í‚ß‚é
+	 * ï¿½eï¿½ï¿½fï¿½ï¿½ï¿½Å‚ï¿½ï¿½ß‚ï¿½ï¿½Fï¿½ÌƒNï¿½ï¿½ï¿½Xï¿½^ï¿½É“ï¿½ï¿½Ä‚Í‚ß‚ï¿½
 	 */
 	void assignPixels(MyImage input, MyImage output, Color centers[]) {
 		int r1, g1, b1, r2, g2, b2;
 		double dist, mind;
 
-		// Še‰æ‘f‚²‚Æ‚É
+		// ï¿½eï¿½ï¿½fï¿½ï¿½ï¿½Æ‚ï¿½
 		for(int i = 0, ii = 0; i < height; i++) {
 			for(int j = 0; j < width; j++, ii++) {
 		
-				// “ü—Í‰æ‘œ‚©‚çRGB’l‚ğ‚Æ‚Á‚Ä‚­‚é
+				// ï¿½ï¿½ï¿½Í‰æ‘œï¿½ï¿½ï¿½ï¿½RGBï¿½lï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 				Color color1 = input.getColor(j, i);
 				r1 = color1.getRed();
 				g1 = color1.getGreen();
 				b1 = color1.getBlue();
 				
-				// Še’†S“_‚²‚Æ‚É
+				// ï¿½eï¿½ï¿½ï¿½Sï¿½_ï¿½ï¿½ï¿½Æ‚ï¿½
 				int id = -1;
 				mind = 1.0e+30;
 				for(int k = 0; k < num; k++) {
 
-					// ’†S“_‚ÌRGB’l‚ğ‚Æ‚Á‚Ä‚­‚é
+					// ï¿½ï¿½ï¿½Sï¿½_ï¿½ï¿½RGBï¿½lï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 					r2 = centers[k].getRed();
 					g2 = centers[k].getGreen();
 					b2 = centers[k].getBlue();
 					
-					// ‚±‚Ì’†S“_‚ªÅ‚à‹ß‚©‚Á‚½‚çA‚»‚Ì’†S“_‚ğ‹L˜^‚·‚é
+					// ï¿½ï¿½ï¿½Ì’ï¿½ï¿½Sï¿½_ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ì’ï¿½ï¿½Sï¿½_ï¿½ï¿½ï¿½Lï¿½^ï¿½ï¿½ï¿½ï¿½
 					dist = (double)(r2 - r1) * (double)(r2 - r1)
 							+ (double)(g2 - g1) * (double)(g2 - g1)
 							+ (double)(b2 - b1) * (double)(b2 - b1);
@@ -103,7 +104,7 @@ public class KMeans {
 					}
 				}
 			
-				// Å‚à‹ß‚¢ID‚ğ‹L˜^‚µAF‚ğ‹L˜^‚·‚é
+				// ï¿½Å‚ï¿½ï¿½ß‚ï¿½IDï¿½ï¿½ï¿½Lï¿½^ï¿½ï¿½ï¿½Aï¿½Fï¿½ï¿½ï¿½Lï¿½^ï¿½ï¿½ï¿½ï¿½
 				idarray[ii] = id;
 				output.setColor(j,  i, centers[id]);
 
@@ -113,7 +114,7 @@ public class KMeans {
 
 
 	/**
-	 * V‚µ‚¢RGB’†S’lŒQ‚ğZo‚·‚é
+	 * ï¿½Vï¿½ï¿½ï¿½ï¿½RGBï¿½ï¿½ï¿½Sï¿½lï¿½Qï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 	 */
 	double calcNewCenter(MyImage input, MyImage output, Color[] centers, Color[] pcenters) {
 		int[] rgbsum = new int[3 * num];
@@ -121,19 +122,19 @@ public class KMeans {
 		int r1, g1, b1, r2, g2, b2;
 		double dist;
 
-		// ‰Šú‰»
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for(int i = 0; i < num; i++) {
 			rgbsum[3 * i] = rgbsum[3 * i + 1] = rgbsum[3 * i + 2] = rgbcount[i] = 0;
 		}
 
-		// Še‰æ‘f‚²‚Æ‚É
+		// ï¿½eï¿½ï¿½fï¿½ï¿½ï¿½Æ‚ï¿½
 		for(int i = 0, ii = 0; i < height; i++) {
 			for(int j = 0; j < width; j++, ii++) {
 		
-				// o—Í‰æ‘œ‚ÌID‚ğ‚Æ‚é
+				// ï¿½oï¿½Í‰æ‘œï¿½ï¿½IDï¿½ï¿½ï¿½Æ‚ï¿½
 				int id = idarray[ii];
 		
-				// “ü—Í‰æ‘œ‚ÌRGB’l‚ğ‰ÁZ‚·‚é
+				// ï¿½ï¿½ï¿½Í‰æ‘œï¿½ï¿½RGBï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
 				Color color1 = input.getColor(j, i);
 				rgbcount[id] += 1;
 				rgbsum[id * 3 + 0] += color1.getRed();
@@ -143,12 +144,12 @@ public class KMeans {
 		}
 	
 
-		// Še’†S“_‚²‚Æ‚É
+		// ï¿½eï¿½ï¿½ï¿½Sï¿½_ï¿½ï¿½ï¿½Æ‚ï¿½
 		dist = 0.0;
 		for(int i = 0, ii = 0; i < num; i++, ii += 3) {
 
 			//
-			// RGB’l‚Ì’†S“_‚ğZo‚·‚é
+			// RGBï¿½lï¿½Ì’ï¿½ï¿½Sï¿½_ï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 			//
 			if(rgbcount[i] > 0) {
 				rgbsum[ii + 0] /= rgbcount[i];
@@ -160,7 +161,7 @@ public class KMeans {
 			b1 = rgbsum[ii + 2];
 			pcenters[i] = new Color(r1, g1, b1);
 
-			// –{—ˆ‚Ì’†S“_‚Æ‚Ì‹——£‚ğZo‚·‚é
+			// ï¿½{ï¿½ï¿½ï¿½Ì’ï¿½ï¿½Sï¿½_ï¿½Æ‚Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 			r2 = centers[i].getRed();
 			g2 = centers[i].getGreen();
 			b2 = centers[i].getBlue();
@@ -170,7 +171,7 @@ public class KMeans {
 			     +  (double)(b2 - b1) * (double)(b2 - b1);
 		}
 
-		// ‹——£‚Ì‘Œv‚ğ•Ô‚·
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½vï¿½ï¿½Ô‚ï¿½
 		return dist;
 	}
 }

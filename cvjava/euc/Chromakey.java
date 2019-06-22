@@ -1,14 +1,15 @@
+package euc;
 
 import java.awt.*;
 
 
 /**
- * ²èÁü½èÍý¤ÎÎã¡§¥¯¥í¥Þ¥­¡¼½èÍý
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡§ï¿½ï¿½ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class Chromakey {
 
 	/**
-	 * ²èÁü½èÍý¤ÎÎã¡§¥¯¥í¥Þ¥­¡¼½èÍý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡§ï¿½ï¿½ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	static MyImage execute(MyImage input, KMeans kmeans, int id) {
 
@@ -16,7 +17,7 @@ public class Chromakey {
 		int height = input.height;
 		MyImage output = new MyImage(width, height);
 
-		//³Æ²èÁÇ¤´¤È¤Ë
+		//ï¿½Æ²ï¿½ï¿½Ç¤ï¿½ï¿½È¤ï¿½
 		for(int i = 0, ii = 0; i < height; i++) {
 			for(int j = 0; j < width; j++, ii++) {
 				
@@ -27,7 +28,7 @@ public class Chromakey {
 			}	
 		}
 	
-		// ¿·¤·¤¤²èÁü¥Ç¡¼¥¿¤òÊÖ¤¹
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½
 		return output;
 
 	}

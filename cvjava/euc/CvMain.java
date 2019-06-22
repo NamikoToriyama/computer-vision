@@ -1,1 +1,88 @@
-/** * ¥³¥ó¥Ô¥å¡¼¥¿¥Ó¥¸¥ç¥ó¤Î¥×¥í¥°¥é¥ß¥ó¥°²ÝÂê¤Îmain¥á¥½¥Ã¥É¤ò´Þ¤à¥¯¥é¥¹ */public class CvMain {	/**	 * 4¡Á6¾Ï¤Î²ÝÂê¤Ë´Ø¤ï¤ëÉôÊ¬¤Î¥á¥½¥Ã¥É	 */	static void imageProcessing1() {		// ¤¹¤Ç¤Ë»ý¤Ã¤Æ¤¤¤ë²èÁü¥Õ¥¡¥¤¥ë¤ÎÌ¾Á°¤ò½ñ¤¯		String filename1 = "itot.jpg";		// ¤³¤ì¤«¤éºîÀ®¤¹¤ë²èÁü¥Õ¥¡¥¤¥ë¤ÎÌ¾Á°¤ò½ñ¤¯		String filename2 = "copy.jpg";		// ²èÁü¥Ç¡¼¥¿ËÜÂÎ		MyImage image1, image2;			// ²èÁü¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¹þ¤à		image1 = JpegFileReader.read(filename1);		// ²èÁü½èÍý¡§		// °Ê²¼¤Î´Ø¿ô¤Î¤¦¤Á¤¤¤º¤ì¤«¤òÍ­¸ú¤Ë¤·¤Æ¡¢»Ä¤ê¤ò¥³¥á¥ó¥È¤¹¤ë		{			image2 = Negative.execute(image1);			//image2 = Binalization.execute(image1);			//image2 = GammaCorrection.execute(image1);			//image2 = SpaceFiltering.execute(image1);				//image2 = Scale.execute(image1);			//image2 = Rotation.execute(image1);		}		// BMP²èÁü¥Õ¥¡¥¤¥ë¤ò½ñ¤­½Ð¤¹		JpegFileWriter.write(filename2, image2);	}	/** 	 * 7¾Ï¤Î²ÝÂê¤Ë´Ø¤ï¤ëÉôÊ¬	 */	static void imageProcessing2() {		// ¤¹¤Ç¤Ë»ý¤Ã¤Æ¤¤¤ëBMP²èÁü¥Õ¥¡¥¤¥ë¤ÎÌ¾Á°¤ò½ñ¤¯		String filename1 = "itot.jpg";		String filename2 = "ochatop.jpg";		// ¤³¤ì¤«¤éºîÀ®¤¹¤ëBMP²èÁü¥Õ¥¡¥¤¥ë¤ÎÌ¾Á°¤ò½ñ¤¯		String filename3 = "copy.jpg";		// ²èÁü¥Ç¡¼¥¿ËÜÂÎ		MyImage image1, image2, image3, image0;				// ²èÁü¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¹þ¤à		image1 = JpegFileReader.read(filename1);		image2 = JpegFileReader.read(filename2);		// ²èÁüimage1¤ËÂÐ¤·¤Æ¡¢K-meansË¡¤ª¤è¤Ó¥¯¥í¥Þ¥­¡¼¤òÅ¬ÍÑ¤¹¤ë		KMeans kmeans = new KMeans();		kmeans.clustering(image1, 6);		image0 = Chromakey.execute(image1, kmeans, 3);		// ²èÁü¤ò¹çÀ®¤¹¤ë		//image3 = VirtualStudio.execute(image1, image2, image0); 		image3 = AlphaBlending.execute(image1, image2, image0); 			//image3 = Tiling.execute(image1, image2); 			// ²èÁü½èÍý·ë²Ì¤ò¥Õ¥¡¥¤¥ë¤Ë½ñ¤­¹þ¤à		JpegFileWriter.write(filename3, image3);	}	/**	 * main´Ø¿ô	 */	public static void main(String args[]) {		// 4¡Á6¾Ï¤Î²ÝÂê¤ËÃå¼ê¤¹¤ë¤È¤­¤Ï¡¢¤³¤Ã¤Á¤òÍ­¸ú¤Ë¤¹¤ë		imageProcessing1();		// 7¾Ï¤Î²ÝÂê¤ËÃå¼ê¤¹¤ë¤È¤­¤Ï¡¢¤³¤Ã¤Á¤òÍ­¸ú¤Ë¤¹¤ë		//imageProcessing2();	}}
+package euc;
+
+/**
+ * ï¿½ï¿½ï¿½ï¿½Ô¥å¡¼ï¿½ï¿½ï¿½Ó¥ï¿½ï¿½ï¿½ï¿½Î¥×¥ï¿½ï¿½ï¿½ï¿½ï¿½ß¥ó¥°²ï¿½ï¿½ï¿½ï¿½mainï¿½á¥½ï¿½Ã¥É¤ï¿½Þ¤à¥¯ï¿½é¥¹
+ */
+public class CvMain {
+
+	/**
+	 * 4ï¿½ï¿½6ï¿½Ï¤Î²ï¿½ï¿½ï¿½Ë´Ø¤ï¿½ï¿½ï¿½ï¿½Ê¬ï¿½Î¥á¥½ï¿½Ã¥ï¿½
+	 */
+	static void imageProcessing1() {
+
+		// ï¿½ï¿½ï¿½Ç¤Ë»ï¿½ï¿½Ã¤Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½
+		String filename1 = "itot.jpg";
+
+		// ï¿½ï¿½ï¿½ì¤«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½
+		String filename2 = "copy.jpg";
+
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		MyImage image1, image2;
+	
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ß¹ï¿½ï¿½ï¿½
+		image1 = JpegFileReader.read(filename1);
+
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		// ï¿½Ê²ï¿½ï¿½Î´Ø¿ï¿½ï¿½Î¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì¤«ï¿½ï¿½Í­ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½Æ¡ï¿½ï¿½Ä¤ï¿½ò¥³¥ï¿½ï¿½È¤ï¿½ï¿½ï¿½
+		{
+			image2 = Negative.execute(image1);
+			//image2 = Binalization.execute(image1);
+			//image2 = GammaCorrection.execute(image1);
+			//image2 = SpaceFiltering.execute(image1);	
+			//image2 = Scale.execute(image1);
+			//image2 = Rotation.execute(image1);
+		}
+
+		// BMPï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ñ¤­½Ð¤ï¿½
+		JpegFileWriter.write(filename2, image2);
+
+	}
+
+	/** 
+	 * 7ï¿½Ï¤Î²ï¿½ï¿½ï¿½Ë´Ø¤ï¿½ï¿½ï¿½ï¿½Ê¬
+	 */
+	static void imageProcessing2() {
+
+		// ï¿½ï¿½ï¿½Ç¤Ë»ï¿½ï¿½Ã¤Æ¤ï¿½ï¿½ï¿½BMPï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½
+		String filename1 = "itot.jpg";
+		String filename2 = "ochatop.jpg";
+
+		// ï¿½ï¿½ï¿½ì¤«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½BMPï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ï¿½
+		String filename3 = "copy.jpg";
+
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		MyImage image1, image2, image3, image0;
+	
+	
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¤ß¹ï¿½ï¿½ï¿½
+		image1 = JpegFileReader.read(filename1);
+		image2 = JpegFileReader.read(filename2);
+
+		// ï¿½ï¿½ï¿½ï¿½image1ï¿½ï¿½ï¿½Ð¤ï¿½ï¿½Æ¡ï¿½K-meansË¡ï¿½ï¿½ï¿½ï¿½Ó¥ï¿½ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½ï¿½Å¬ï¿½Ñ¤ï¿½ï¿½ï¿½
+		KMeans kmeans = new KMeans();
+		kmeans.clustering(image1, 6);
+		image0 = Chromakey.execute(image1, kmeans, 3);
+
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//image3 = VirtualStudio.execute(image1, image2, image0); 
+		image3 = AlphaBlending.execute(image1, image2, image0); 	
+		//image3 = Tiling.execute(image1, image2); 	
+
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½Õ¥ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ñ¤­¹ï¿½ï¿½ï¿½
+		JpegFileWriter.write(filename3, image3);
+
+	}
+
+	/**
+	 * mainï¿½Ø¿ï¿½
+	 */
+	public static void main(String args[]) {
+
+		// 4ï¿½ï¿½6ï¿½Ï¤Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ï¿½Í­ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½
+		imageProcessing1();
+
+		// 7ï¿½Ï¤Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê¤¹ï¿½ï¿½È¤ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½Ã¤ï¿½ï¿½ï¿½Í­ï¿½ï¿½ï¿½Ë¤ï¿½ï¿½ï¿½
+		//imageProcessing2();
+
+	}
+}

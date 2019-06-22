@@ -1,14 +1,15 @@
+package sjis;
 
 import java.awt.*;
 
 
 /**
- * ‰æ‘œˆ—‚Ì—áFƒNƒƒ}ƒL[ˆ—
+ * ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½Fï¿½Nï¿½ï¿½ï¿½}ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½
  */
 public class Chromakey {
 
 	/**
-	 * ‰æ‘œˆ—‚Ì—áFƒNƒƒ}ƒL[ˆ—
+	 * ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½Fï¿½Nï¿½ï¿½ï¿½}ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½
 	 */
 	static MyImage execute(MyImage input, KMeans kmeans, int id) {
 
@@ -16,7 +17,7 @@ public class Chromakey {
 		int height = input.height;
 		MyImage output = new MyImage(width, height);
 
-		//Še‰æ‘f‚²‚Æ‚É
+		//ï¿½eï¿½ï¿½fï¿½ï¿½ï¿½Æ‚ï¿½
 		for(int i = 0, ii = 0; i < height; i++) {
 			for(int j = 0; j < width; j++, ii++) {
 				
@@ -27,7 +28,7 @@ public class Chromakey {
 			}	
 		}
 	
-		// V‚µ‚¢‰æ‘œƒf[ƒ^‚ğ•Ô‚·
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½fï¿½[ï¿½^ï¿½ï¿½Ô‚ï¿½
 		return output;
 
 	}

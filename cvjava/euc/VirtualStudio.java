@@ -1,13 +1,14 @@
+package euc;
 
 import java.awt.*;
 
 /**
- * ²èÁü½èÍý¤ÎÎã¡§¥Ð¡¼¥Á¥ã¥ë¥¹¥¿¥¸¥ªÉ÷¤Î²èÁü¹çÀ®
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡§ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ë¥¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class VirtualStudio {
 
 	/**
-	 * ²èÁü½èÍý¤ÎÎã¡§¥Ð¡¼¥Á¥ã¥ë¥¹¥¿¥¸¥ªÉ÷¤Î²èÁü¹çÀ®
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡§ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ë¥¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	static MyImage execute(MyImage input1, MyImage input2, MyImage input0) { 
 
@@ -19,36 +20,36 @@ public class VirtualStudio {
 		int width  = (width1  > width2)  ? width1  : width2;
 		int height = (height1 > height2) ? height1 : height2;
 	
-		// ½ÐÎÏ²èÁü¤Î³ÎÊÝ
+		// ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½Î³ï¿½ï¿½ï¿½
 		MyImage output = new MyImage(width, height);
 
-		// ³Æ²èÁÇ¤´¤È¤Ë
+		// ï¿½Æ²ï¿½ï¿½Ç¤ï¿½ï¿½È¤ï¿½
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				boolean isProcessed = false;
 		
-				// image0¤Î²èÁÇÃÍ¤ò»²¾È
+				// image0ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ò»²¾ï¿½
 				if(i < height1 && j < width1) {
 
-					// image0¤Î²èÁÇÃÍ¤¬¹õ¤Ç¤Ê¤±¤ì¤Ð
+					// image0ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½Ç¤Ê¤ï¿½ï¿½ï¿½ï¿½
 					Color color0 = input0.getColor(j, i);
 					if(color0.getRed() > 0) {
 				
-						// ¿·¤·¤¤²èÁü¤Ëimage1¤Î²èÁÇÃÍ¤òÂåÆþ
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½image1ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ï¿½
 						Color color1 = input1.getColor(j, i);
 						output.setColor(j, i, color1);
 				
-						// true¤Ç¤¢¤ì¤Ð¡¢input1¤Î²èÁÇÃÍ¤òÂåÆþºÑ¤ß¤Ç¤¢¤ë
+						// trueï¿½Ç¤ï¿½ï¿½ï¿½Ð¡ï¿½input1ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¤ß¤Ç¤ï¿½ï¿½ï¿½
 						isProcessed = true;
 					}
 					
 				}
 
-				// image2¤Î²èÁÇÃÍ¤ò»²¾È
+				// image2ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ò»²¾ï¿½
 				if(i < height2 && j < width2) {
 					if(isProcessed == false) {
 						
-						// ¿·¤·¤¤²èÁü¤Ëinput2¤Î²èÁÇÃÍ¤òÂåÆþ
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½input2ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ï¿½
 						Color color2 = input2.getColor(j, i);
 						output.setColor(j, i, color2);
 					}
@@ -56,7 +57,7 @@ public class VirtualStudio {
 			}
 		}
 
-		// ¿·¤·¤¤²èÁü¥Ç¡¼¥¿¤òÊÖ¤¹
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½
 		return output;
 
 	}

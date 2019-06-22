@@ -1,38 +1,39 @@
+package euc;
 
 import java.awt.Color;
 
 /**
- * ²èÁü½èÍý¤ÎÎã¡§Ç»Ã¸¤òÈ¿Å¾¤¹¤ë
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¡§Ç»Ã¸ï¿½ï¿½È¿Å¾ï¿½ï¿½ï¿½ï¿½
  */
 public class Negative {
 
 	/**
-	 * Ç»Ã¸È¿Å¾¤ò¼Â¹Ô¤¹¤ë
+	 * Ç»Ã¸È¿Å¾ï¿½ï¿½Â¹Ô¤ï¿½ï¿½ï¿½
 	 */
 	public static MyImage execute(MyImage input) {
 
-		// ½ÐÎÏ²èÁü¤ò³ÎÊÝ¤¹¤ë
+		// ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¤ï¿½ï¿½ï¿½
 		MyImage output = new MyImage(input.width, input.height);
 	
-		// ³Æ²èÁÇ¤Ë¤Ä¤¤¤Æ
+		// ï¿½Æ²ï¿½ï¿½Ç¤Ë¤Ä¤ï¿½ï¿½ï¿½
 		for(int i = 0; i < input.height; i++) {
 			for(int j = 0; j < input.width; j++) {
 				
-				// ÆþÎÏ²èÁü¤Î²èÁÇÃÍ¤ò¥²¥Ã¥È¤¹¤ë
+				// ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ò¥²¥Ã¥È¤ï¿½ï¿½ï¿½
 				Color color1 = input.getColor(j, i);
 
-				// È¿Å¾¤·¤¿²èÁÇÃÍ¤Î·×»»
+				// È¿Å¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¤Î·×»ï¿½
 				int r = 255 - color1.getRed();
 				int g = 255 - color1.getGreen();
 				int b = 255 - color1.getBlue();
 				Color color2 = new Color(r, g, b);
 
-				// ½ÐÎÏ²èÁü¤Î²èÁÇÃÍ¤ò¥»¥Ã¥È¤¹¤ë
+				// ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½Î²ï¿½ï¿½ï¿½ï¿½Í¤ò¥»¥Ã¥È¤ï¿½ï¿½ï¿½
 				output.setColor(j, i, color2);
 			}
 		}
 		
-		// ½ÐÎÏ²èÁü¤òÊÖ¤¹
+		// ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½
 		return output;
 	}
 

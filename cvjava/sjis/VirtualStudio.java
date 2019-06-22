@@ -1,13 +1,14 @@
+package sjis;
 
 import java.awt.*;
 
 /**
- * ‰æ‘œˆ—‚Ì—áFƒo[ƒ`ƒƒƒ‹ƒXƒ^ƒWƒI•—‚Ì‰æ‘œ‡¬
+ * ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½Fï¿½oï¿½[ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½^ï¿½Wï¿½Iï¿½ï¿½ï¿½Ì‰æ‘œï¿½ï¿½ï¿½ï¿½
  */
 public class VirtualStudio {
 
 	/**
-	 * ‰æ‘œˆ—‚Ì—áFƒo[ƒ`ƒƒƒ‹ƒXƒ^ƒWƒI•—‚Ì‰æ‘œ‡¬
+	 * ï¿½æ‘œï¿½ï¿½ï¿½ï¿½ï¿½Ì—ï¿½Fï¿½oï¿½[ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½^ï¿½Wï¿½Iï¿½ï¿½ï¿½Ì‰æ‘œï¿½ï¿½ï¿½ï¿½
 	 */
 	static MyImage execute(MyImage input1, MyImage input2, MyImage input0) { 
 
@@ -19,36 +20,36 @@ public class VirtualStudio {
 		int width  = (width1  > width2)  ? width1  : width2;
 		int height = (height1 > height2) ? height1 : height2;
 	
-		// o—Í‰æ‘œ‚ÌŠm•Û
+		// ï¿½oï¿½Í‰æ‘œï¿½ÌŠmï¿½ï¿½
 		MyImage output = new MyImage(width, height);
 
-		// Še‰æ‘f‚²‚Æ‚É
+		// ï¿½eï¿½ï¿½fï¿½ï¿½ï¿½Æ‚ï¿½
 		for(int i = 0; i < height; i++) {
 			for(int j = 0; j < width; j++) {
 				boolean isProcessed = false;
 		
-				// image0‚Ì‰æ‘f’l‚ğQÆ
+				// image0ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½Qï¿½ï¿½
 				if(i < height1 && j < width1) {
 
-					// image0‚Ì‰æ‘f’l‚ª•‚Å‚È‚¯‚ê‚Î
+					// image0ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Å‚È‚ï¿½ï¿½ï¿½ï¿½
 					Color color0 = input0.getColor(j, i);
 					if(color0.getRed() > 0) {
 				
-						// V‚µ‚¢‰æ‘œ‚Éimage1‚Ì‰æ‘f’l‚ğ‘ã“ü
+						// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½ï¿½image1ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½
 						Color color1 = input1.getColor(j, i);
 						output.setColor(j, i, color1);
 				
-						// true‚Å‚ ‚ê‚ÎAinput1‚Ì‰æ‘f’l‚ğ‘ã“üÏ‚İ‚Å‚ ‚é
+						// trueï¿½Å‚ï¿½ï¿½ï¿½ÎAinput1ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½ï¿½Ï‚İ‚Å‚ï¿½ï¿½ï¿½
 						isProcessed = true;
 					}
 					
 				}
 
-				// image2‚Ì‰æ‘f’l‚ğQÆ
+				// image2ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½Qï¿½ï¿½
 				if(i < height2 && j < width2) {
 					if(isProcessed == false) {
 						
-						// V‚µ‚¢‰æ‘œ‚Éinput2‚Ì‰æ‘f’l‚ğ‘ã“ü
+						// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½ï¿½input2ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½ï¿½
 						Color color2 = input2.getColor(j, i);
 						output.setColor(j, i, color2);
 					}
@@ -56,7 +57,7 @@ public class VirtualStudio {
 			}
 		}
 
-		// V‚µ‚¢‰æ‘œƒf[ƒ^‚ğ•Ô‚·
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½fï¿½[ï¿½^ï¿½ï¿½Ô‚ï¿½
 		return output;
 
 	}

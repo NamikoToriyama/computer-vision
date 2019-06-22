@@ -1,12 +1,13 @@
+package sjis;
 
 import java.awt.Color;
 
 public class MyImage {
 
-	// ‰¡•ûŒü‚Æc•ûŒü‚Ì‰æ‘f”
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æcï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½fï¿½ï¿½
 	int width, height;
 	
-	// ‰æ‘f’l
+	// ï¿½ï¿½fï¿½l
 	int pixelarray[];
 	
 	
@@ -27,7 +28,7 @@ public class MyImage {
 	}
 	
 	/**
-	 * “Á’è‚Ì‰æ‘f’l‚ğƒZƒbƒg‚·‚é
+	 * ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½fï¿½lï¿½ï¿½ï¿½Zï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 	 */
 	public void setColor(int j, int i, Color color) {
 		int id = i * width + j;
@@ -36,7 +37,7 @@ public class MyImage {
 	}
 	
 	/**
-	 * “Á’è‚Ì‚ª‘[’u‚ğƒQƒbƒg‚·‚é
+	 * ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½[ï¿½uï¿½ï¿½ï¿½Qï¿½bï¿½gï¿½ï¿½ï¿½ï¿½
 	 */
 	public Color getColor(int j, int i) {
 		int id = i * width + j;

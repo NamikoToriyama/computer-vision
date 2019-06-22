@@ -1,21 +1,22 @@
+package sjis;
 
 import java.awt.*;
 
 /**
- * ‰æ‘œ‚ğŠg‘åk¬‚·‚é
+ * ï¿½æ‘œï¿½ï¿½ï¿½gï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class Scale {
 	static double SCALEX = 2.0, SCALEY = 3.0;
 	
 	
 	/**
-	 * ‰æ‘œ‚ğŠg‘åk¬‚·‚é
-	@*/
+	 * ï¿½æ‘œï¿½ï¿½ï¿½gï¿½ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	ï¿½@*/
 	static MyImage execute(MyImage input) {
 		int width1, height1, width2, height2, i, j;
 		
 
-		// Œ³‰æ‘œ‚ÆV‰æ‘œ‚ÌƒTƒCƒY‚ğ’è‹`‚·‚é
+		// ï¿½ï¿½ï¿½æ‘œï¿½ÆVï¿½æ‘œï¿½ÌƒTï¿½Cï¿½Yï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½
 		width1 = input.width;
 		height1 = input.height;
 		width2 = (int)(input.width * SCALEX);
@@ -23,37 +24,37 @@ public class Scale {
 		MyImage output = new MyImage(width2, height2);
 	
 		
-		// V‚µ‚¢‰æ‘œ‚ÌŠe‰æ‘f‚²‚Æ‚É
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½ÌŠeï¿½ï¿½fï¿½ï¿½ï¿½Æ‚ï¿½
 		for(i = 0; i < height2; i++) {
 			for(j = 0; j < width2; j++) {
 				double x1, y1, r, g, b;
 				
-				// Œ³‰æ‘œ‚Ì‘Î‰‚·‚éx,yÀ•W’l‚ğŒvZ‚·‚é
+				// ï¿½ï¿½ï¿½æ‘œï¿½Ì‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½x,yï¿½ï¿½ï¿½Wï¿½lï¿½ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½ï¿½
 				x1 = calcX(j, i, width1, height1);
 				y1 = calcY(j, i, width1, height1);
 
-				// Œ³‰æ‘œ‚©‚çRGB’l‚ğZo‚·‚é
+				// ï¿½ï¿½ï¿½æ‘œï¿½ï¿½ï¿½ï¿½RGBï¿½lï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 				calcRGB(input, output, x1, y1, j, i);
 
 			}
 		}
 
-		// V‚µ‚¢‰æ‘œƒf[ƒ^‚ğ•Ô‚·
+		// ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½æ‘œï¿½fï¿½[ï¿½^ï¿½ï¿½Ô‚ï¿½
 		return output;
 
 	}
 
 	
 	/**
-	 * Œ³‰æ‘œ‚Ì‘Î‰‚·‚éXÀ•W’l‚ğZo‚·‚é
+	 * ï¿½ï¿½ï¿½æ‘œï¿½Ì‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½Wï¿½lï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 	 */
 	static double calcX(int x2, int y2, int width1, int height1) {
 		double x = 0.0;
 
-		// ‹t•ÏŠ·‚È‚Ì‚ÅA‰æ‘œ‚Ì”{—¦‚Ì‹t”‚ğ‹‚ß‚é
+		// ï¿½tï¿½ÏŠï¿½ï¿½È‚Ì‚ÅAï¿½æ‘œï¿½Ì”{ï¿½ï¿½ï¿½Ì‹tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 		x = x2 / SCALEX;
 
-		// Œ³‰æ‘œ‚Ì”ÍˆÍ“à‚Éû‚Ü‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©Šm”F‚·‚é
+		// ï¿½ï¿½ï¿½æ‘œï¿½Ì”ÍˆÍ“ï¿½ï¿½Éï¿½ï¿½Ü‚ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½
 		if(x < 0.0 || x > (double)width1) {
 			System.out.println("EXIT! x=" + x);
 			System.exit(-1);
@@ -64,15 +65,15 @@ public class Scale {
 
 	
 	/**
-	 * Œ³‰æ‘œ‚Ì‘Î‰‚·‚éYÀ•W’l‚ğZo‚·‚é
+	 * ï¿½ï¿½ï¿½æ‘œï¿½Ì‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½Wï¿½lï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
 	 */
 	static double calcY(int x2, int y2, int width1, int height1) {
 		double y = 0.0;
 
-		// ‹t•ÏŠ·‚È‚Ì‚ÅA‰æ‘œ‚Ì”{—¦‚Ì‹t”‚ğ‹‚ß‚é
+		// ï¿½tï¿½ÏŠï¿½ï¿½È‚Ì‚ÅAï¿½æ‘œï¿½Ì”{ï¿½ï¿½ï¿½Ì‹tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½
 		y = y2 / SCALEY;
 
-		// Œ³‰æ‘œ‚Ì”ÍˆÍ“à‚Éû‚Ü‚Á‚Ä‚¢‚é‚©‚Ç‚¤‚©Šm”F‚·‚é
+		// ï¿½ï¿½ï¿½æ‘œï¿½Ì”ÍˆÍ“ï¿½ï¿½Éï¿½ï¿½Ü‚ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ï¿½
 		if(y < 0.0 || y > (double)height1) {
 			System.out.println("EXIT! y=" + y);
 			System.exit(-1);
@@ -85,12 +86,12 @@ public class Scale {
 
 
 	/**
-	 * Œ³‰æ‘œ‚ÌˆÊ’u(x1,y1)‚É‚¨‚¯‚éRGB’l‚ğZo‚·‚é
- 	 * i‚±‚ÌƒvƒƒOƒ‰ƒ€‚Å‚Í Nearest Neighbor ‚ğÌ—p‚·‚éj
+	 * ï¿½ï¿½ï¿½æ‘œï¿½ÌˆÊ’u(x1,y1)ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½RGBï¿½lï¿½ï¿½ï¿½Zï¿½oï¿½ï¿½ï¿½ï¿½
+ 	 * ï¿½iï¿½ï¿½ï¿½Ìƒvï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ Nearest Neighbor ï¿½ï¿½ï¿½Ì—pï¿½ï¿½ï¿½ï¿½j
 	 */
 	static void calcRGB(MyImage input, MyImage output, double x1, double y1, int x2, int y2) {
 
-		// QÆ‚·‚×‚«‰æ‘f‚ğ“Á’è‚·‚é
+		// ï¿½Qï¿½Æ‚ï¿½ï¿½×‚ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½è‚·ï¿½ï¿½
 		int xx = (int)(x1 + 0.5);
 		if(xx < 0) xx = 0;
 		if(xx >= input.width) xx = input.width - 1;
@@ -98,7 +99,7 @@ public class Scale {
 		if(yy < 0) yy = 0;
 		if(yy >= input.height) yy = input.height - 1;
 
-		// RGB’l‚ğ•Ô‚·
+		// RGBï¿½lï¿½ï¿½Ô‚ï¿½
 		Color color = input.getColor(xx, yy);
 		int value = color.getRGB();
 		output.setColor(x2, y2, color);
