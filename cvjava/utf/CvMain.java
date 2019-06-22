@@ -64,8 +64,8 @@ public class CvMain {
 		image0 = Chromakey.execute(image1, kmeans, 3);
 
 		// 画像を合成する
-		//image3 = VirtualStudio.execute(image1, image2, image0); 
-		image3 = AlphaBlending.execute(image1, image2, image0); 	
+		image3 = VirtualStudio.execute(image1, image2, image0); 
+		//image3 = AlphaBlending.execute(image1, image2, image0); 	
 		//image3 = Tiling.execute(image1, image2); 	
 
 		// 画像処理結果をファイルに書き込む

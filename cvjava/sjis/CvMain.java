@@ -64,8 +64,8 @@ public class CvMain {
 		image0 = Chromakey.execute(image1, kmeans, 3);
 
 		// �摜����������
-		//image3 = VirtualStudio.execute(image1, image2, image0); 
-		image3 = AlphaBlending.execute(image1, image2, image0); 	
+		image3 = VirtualStudio.execute(image1, image2, image0); 
+		// image3 = AlphaBlending.execute(image1, image2, image0); 	
 		//image3 = Tiling.execute(image1, image2); 	
 
 		// �摜�������ʂ��t�@�C���ɏ�������
