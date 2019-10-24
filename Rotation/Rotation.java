@@ -2,28 +2,35 @@
 import java.awt.*;
 
 
-public class Scale {
-	static double SCALEX = 0.5, SCALEY = 0.5;
+public class Rotation {
+	static double SCALEX = 2.0, SCALEY = 2.0, angle = 90;
 	
-
+	// TODO アフィン変換を使った回転
 	static MyImage execute(MyImage input) {
 		int width1, height1, width2, height2, i, j;
 		
 		width1 = input.width;
 		height1 = input.height;
 		width2 = (int)(input.width * SCALEX);
-		height2 = (int)(input.height * SCALEY);
-		MyImage output = new MyImage(width2, height2);
+        height2 = (int)(input.height * SCALEY);
+        MyImage output = new MyImage(width2, height2);
+		//MyImage output = new MyImage(height2, width2);
 	
 		
 		for(i = 0; i < height2; i++) {
 			for(j = 0; j < width2; j++) {
-				double x1, y1, r, g, b;
+				double x1, y1;
 				
 				x1 = calcX(j, i, width1, height1);
 				y1 = calcY(j, i, width1, height1);
 
-				calcRGB(input, output, x1, y1, j, i);
+                // 通常
+                // calcRGB(input, output, x1, y1, i, j);
+                // 90度回転 (...,height2-1-i, j)にすると270度回転
+                //calcRGB(input, output, x1, y1, i, width2 -1 - j);
+                // 180度回転
+                calcRGB(input, output, x1, y1, width2 -1 - j, height2-1-i);
+
 
 			}
 		}
@@ -47,7 +54,7 @@ public class Scale {
 	}
 
 	
-	static double calcY(int x2, int y2, int width1, int height1) {
+    static double calcY(int x2, int y2, int width1, int height1) {
 		double y = 0.0;
 
 		y = y2 / SCALEY;
@@ -73,7 +80,6 @@ public class Scale {
 		if(yy >= input.height) yy = input.height - 1;
 
 		Color color = input.getColor(xx, yy);
-		int value = color.getRGB();
 		output.setColor(x2, y2, color);
 	
 	}

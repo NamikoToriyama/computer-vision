@@ -2,6 +2,11 @@
 *.jpg
 *.jpeg
 *.pdf
+*.png
 
 #クラスファイルを除外する
 *.class
+
+.vscode
+CvJava
+itotimg

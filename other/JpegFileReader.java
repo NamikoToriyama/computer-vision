@@ -1,21 +1,14 @@
-package euc;
-
 import java.io.*;
 import javax.imageio.*;
 import java.awt.image.*;
 
-/**
- * JPEG�ե�������ɤ߹���
- */
+
 public class JpegFileReader {
 
-	/**
-	 * JPEG�ե�������ɤ߹���
-	 */
 	public static MyImage read(String filename) {
 		BufferedImage image = null;
 		
-		// �ե�����򳫤�
+
 		try {
 			image = ImageIO.read(new File(filename));
 		} catch(Exception exp) {
@@ -23,7 +16,6 @@ public class JpegFileReader {
 			return null;
 		}
 		
-		// �ɤ߹���������β����ͤ�����
 		int width = image.getWidth();
 		int height = image.getHeight();
 		int[] rgb = new int[width * height];
@@ -35,7 +27,6 @@ public class JpegFileReader {
 			return null;
 		}
 		
-		// MyImage���饹����ݤ����֤�
 		MyImage my = new MyImage(width, height, rgb);
 		return my;
 		
