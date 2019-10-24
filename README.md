@@ -1,4 +1,6 @@
-# computer-vision
+# Computer-Vision
+授業で基本的な画像処理を行った。(3年前期)
+
 - 各ファイルの説明
 
 | ファイル名 | 内容 |
